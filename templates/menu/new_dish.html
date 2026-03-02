@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一人暮らしの味方 - 料理登録</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/new_dish.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>一人暮らしの味方</h1>
+        <hr>
+        <h2>料理登録</h2>
+        <p>料理の名前と材料を登録しましょう．</p>
+    </header>
+    <form method="POST">
+        <h3 class="step">① 料理の名前を入力</h3>
+        <label for="dish_name">料理の名前</label>
+        <input type="text" id="dish_name" name="new_dish_name" required>
+        <br>
+        <h3 class="step">② 材料を選択</h3>
+        {% for cat in cat_list %}
+        <section>
+            <h3>{{cat.cat_name}}</h3>
+            {% for ing in ing_list if ing.cat_id == cat.cat_id %}
+            <div class="checkbox-grid">
+                <label>
+                    <input type="checkbox" name="ing_id_needed_list" value="{{ ing.ing_id }}">
+                    {{ ing.ing_name }}
+                </label>
+            </div>
+            {% else %}
+            <div class="empty_message">
+                <p>登録されている材料はありません．</p>
+            </div>
+            {% endfor %}
+        </section>
+        {% endfor %}
+        <!--登録ボタン -->
+        <br>
+        <button type="submit" onclick="return confirm('登録します．よろしいですか？')">登録</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <footer>
+        <a href="{{ url_for('index') }}">ホームに戻る</a>
+        <br>
+    </footer>
+</body>
+</html>

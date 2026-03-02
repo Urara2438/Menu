@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一人暮らしの味方 - 料理登録</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/list_dish.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>一人暮らしの味方</h1>
+        <hr>
+        <h2>料理一覧</h2>
+        <p>登録されている料理の一覧を表示します．</p>
+        <br>
+    </header>
+    <main>
+        {% if dish_list %}
+            {% for dish in dish_list %}
+                <a href="{{ url_for('edit_dish', dish_id=dish.dish_id) }}">{{ dish.dish_name }}</a>
+            {% endfor %}
+        {% else %}
+            <p>登録されている料理はありません．</p>
+        {% endif %}
+    </main>
+    <br>
+    <hr>
+    <br>
+    <footer>
+        <a href="{{ url_for('index_edit') }}">編集メニューに戻る</a>
+        <br>
+        <a href="{{ url_for('index') }}">ホームに戻る</a>
+        <br>
+    </footer>
+</body>
+</html>

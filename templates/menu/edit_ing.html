@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一人暮らしの味方 - ホーム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/new_ing.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>一人暮らしの味方</h1>
+        <hr>
+        <h2>材料の編集</h2>
+        <p>登録済みの材料を編集したり削除したりできます．</p>
+    </header>
+    <form method="POST">
+    <section>
+        <label for="edit_ing_name">材料の名前</label>
+        <input type="text" id="edit_ing_name" name="edited_ing_name" value="{{ now_ing.ing_name }}" required>
+        <br>
+        <label for="cat_select">カテゴリー</label>
+        <select id="cat_select" name="edited_cat_id" required>
+            <option value="" disabled selected>カテゴリーを選択</option>
+            {% for cat in cat_list %}
+                <option value="{{ cat.cat_id }}">{{ cat.cat_name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">編集</button>
+    </section>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <footer>
+        <a href="{{ url_for('list_ing') }}">材料一覧に戻る</a>
+        <br>
+        <a href="{{ url_for('index') }}">ホームに戻る</a>
+        <br>
+    </footer>
+</body>
+</html>

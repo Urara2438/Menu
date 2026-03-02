@@ -1,0 +1,116 @@
+html{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.4rem;
+    color: #624735;
+    background-image: url("/static/img/menu_backimg.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+@media (max-width: 900px) {
+    body{
+        background-image: url("/static/img/menu_backimg_mobile.png");
+    }
+}
+
+/* header， mainタグのスタイル ---------------------------------------------------------------------------------------------------------- */
+header, main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* hタグのスタイル ---------------------------------------------------------------------------------------------------------- */
+h1 {
+    color: #624735;
+    text-align: center;
+    margin-bottom: 0rem; /* h1とh2の間のスペースをなくすためにmargin-bottomを0に設定 */
+}
+
+h2 {
+    color: #624735;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 55%;
+    max-width: 20rem; /*基本はwidthの50%で、最大幅は20remに制限*/
+    padding: 0.5rem;
+    border-radius: 3rem;
+    margin-bottom: 0rem;
+}
+
+/* hrタグのスタイル ---------------------------------------------------------------------------------------------------------- */
+hr {
+    border: none;
+    height: 0.2rem;
+    background-color: rgba(120, 90, 60, 0.6);
+    width: 90%;
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* aタグのスタイル ---------------------------------------------------------------------------------------------------------- */
+a {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 50%;
+    max-width: 20rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0rem 0.3rem 0.7rem rgba(89, 43, 8, 0.3);
+    text-decoration: none;
+    color: #624735;
+    text-align: center;
+    font-size: 1.6rem;
+    transition: transform 0.4s ease; /* hover時のアニメーション */
+}
+
+a:hover{
+    transform: translateY(-0.5rem); /* hover時に少し浮き上がる */
+    border:rgba(89, 43, 8, 0.3) solid 0.3rem; /* hover時にborderを追加 */
+}
+
+
+/* pタグのスタイル ---------------------------------------------------------------------------------------------------------- */
+p {
+    color: #624735;
+    text-align: justify;
+    width: 80%;
+    max-width: fit-content; /* テキストの幅を内容に合わせて調整 */
+}
+
+/* footerのスタイル ---------------------------------------------------------------------------------------------------------- */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer a {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 50%;
+    max-width: 20rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0rem 0.3rem 0.7rem rgba(89, 43, 8, 0.3);
+    text-decoration: none;
+    color: #624735;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease; /* hover時のアニメーション */
+}
+
+footer a:hover{
+    transform: translateY(-0.5rem);
+}
+

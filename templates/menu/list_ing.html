@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一人暮らしの味方 - 料理登録</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/list_ing.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>一人暮らしの味方</h1>
+        <hr>
+        <h2>材料一覧</h2>
+        <p>登録されている材料の一覧です．編集したい材料をクリックしてください．</p>
+    </header>
+    <main>
+        {% for cat in cat_list %}
+        <section>
+            <h3>{{ cat.cat_name }}</h3>
+            {% for ing in ing_list if ing.cat_id == cat.cat_id %}
+            <div class="item-grid">
+                <a href="{{ url_for('edit_ing', ing_id=ing.ing_id) }}">{{ ing.ing_name }}</a>
+            </div>
+            {% else %}
+            <div class="empty_message">
+                <p>登録されている材料はありません．</p>
+            </div>
+            {% endfor %}
+        </section>
+        {% endfor %}
+        </main>
+    <br>
+    <hr>
+    <br>
+    <footer>
+        <a href="{{ url_for('index_edit') }}">編集メニューに戻る</a>
+        <br>
+        <a href="{{ url_for('index') }}">ホームに戻る</a>
+        <br>
+    </footer>
+</body>
+</html>

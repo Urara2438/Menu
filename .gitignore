@@ -1,0 +1,9 @@
+.venv_for_menu
+venv
+__pycache__
+*.pyc
+.env
+.DS_Store
+.vscode
+
+

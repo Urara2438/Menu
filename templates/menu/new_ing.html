@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一人暮らしの味方 - 材料登録</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/new_ing.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>一人暮らしの味方</h1>
+        <hr>
+        <h2>材料登録</h2>
+        <p>材料を登録しましょう</p>
+    </header>
+    <form method="POST">
+    <section>
+        <label for="set_ing_name">材料の名前</label>
+        <input type="text" id="set_ing_name" name="new_ing_name" required>
+        <br>
+        <label for="cat_select">カテゴリー</label>
+        <select id="cat_select" name="cat_id" required>
+            <option value="" disabled selected>カテゴリーを選択</option>
+            {% for cat in cat_list %}
+                <option value="{{ cat.cat_id }}">{{ cat.cat_name }}</option> 
+                <!--catはCategoryオブジェクトなのでそれのインスタンス変数にcat.cat_idやcat.cat_nameでアクセスする-->
+            {% endfor %}
+        </select>
+        <button type="submit" onclick="return confirm('登録します．よろしいですか？')">登録</button> <!--cat_id=cat.cat_idを送信-->
+    </section>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <footer>
+        <a href="{{ url_for('index') }}">ホームに戻る</a>
+    </footer>
+</body>
+</html>

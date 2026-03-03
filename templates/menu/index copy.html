@@ -18,9 +18,12 @@
     </header>
     <!-- メニュー -->
     <main>
-        <a id="search" class="search" href="{{ url_for('search') }}">作れる料理をさがす</a><br>
-        <a id="new" href="{{ url_for('index_new') }}">料理や材料を登録する</a><br>
-        <a id="edit" href="{{ url_for('index_edit') }}">料理や材料を編集する</a><br>
+        <a id="search" href="{{ url_for('search') }}">作れる料理をさがす</a>
+        <br>
+        <a id="new" href="{{ url_for('index_new') }}">料理や材料を登録する</a>
+        <br>
+        <a id="edit" href="{{ url_for('index_edit') }}">料理や材料を編集する</a>
+        <br>
     </main>
     <script src="{{ url_for('static', filename='javascript/menu/index.js') }}"></script>
 </body>

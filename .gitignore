@@ -1,4 +1,4 @@
-.venv_for_menu
+.venv_menu
 venv
 __pycache__
 *.pyc

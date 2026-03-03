@@ -16,10 +16,10 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy()  # SQLAlchemyオブジェクトを作成．これがDB操作の中心になる．
 migrate = Migrate()  # Migrationオブジェクトを作成．これがDBの構造変更を管理する．
 
-db.init_app(app)
-# dbとappを接続し，このFlaskアプリで使うDBを確定．
-migrate.init_app(app, db)
-# Flask-Migrateをappとdbに接続．これでFlask-MigrateがDBの構造変更を管理できるようになる．
+db.init_app(app)  # dbとappを接続し，このFlaskアプリで使うDBを確定．
+migrate.init_app(
+    app, db
+)  # Flask-Migrateをappとdbに接続．これでFlask-MigrateがDBの構造変更を管理できるようになる．
 
 
 # モデル定義------------------------------------------------------------------------------------------------------------------------------------

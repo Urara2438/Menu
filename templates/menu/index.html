@@ -18,19 +18,33 @@
     <!-- メニュー -->
     <main>
         <div class="selecter_container">
-            <a class="search" href="{{ url_for('search') }}">
+            <a id="card_search" class="search" href="{{ url_for('search') }}">
                 <span id="search">さがす</span>
                 <p>登録済みの材料からあるものを選択して，いま作れる料理をさがすことができます．</p>
+                <img id="dish_img" width="250px">
             </a>
+            <!-- ふやすカードとととのえるカードのセット -->
             <div class="new_edit_container">
-                <a class="new_edit" href="{{ url_for('index_new') }}">
+                <!-- ふやすカード -->
+                <div id="card_new" class="new_edit">
                     <span id="new">ふやす</span>
                     <p>新しい材料や料理を追加できます．</p>
-                </a>
-                <a class="new_edit" href="{{ url_for('index_edit') }}">
+                    <!--ホバーされたら表示-->
+                    <div id="divcard_new">
+                        <a href="{{ url_for('new_ing') }}">材料</a>
+                        <a href="{{ url_for('new_dish') }}">料理</a>
+                    </div>
+                </div>
+                <!-- ととのえるカード -->
+                <div id="card_edit" class="new_edit">
                     <span id="edit">ととのえる</span>
                     <p>登録済みの材料や料理を編集できます．</p>
-                </a>
+                    <!--ホバーされたら表示-->
+                    <div id="divcard_edit">
+                        <a href="{{ url_for('list_ing') }}">材料</a>
+                        <a href="{{ url_for('list_dish') }}">料理</a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

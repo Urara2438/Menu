@@ -82,13 +82,20 @@ p {
     height: 36rem;
 }
 
+.search img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+    opacity: 0.5; /*半透明にする*/
+}
+
 .new_edit {
     width: 36rem;
     height: 17rem;
 }
 
 .new_edit:hover, .search:hover{
-    transform: translateY(-0.5rem); /* hover時に少し浮き上がる */
+    transform: translateY(-1rem); /* hover時に少し浮き上がる */
 }
 
 .new_edit, .search {
@@ -109,6 +116,46 @@ p {
     font-weight: bold;
     text-align: justify;
 }
+
+
+/* jsで表示する要素のスタイル ---------------------------------------------------------------------------------------------------------- */
+#divcard_edit, #divcard_new {
+    display: none;
+}
+
+#divcard_new a {
+    background-color: antiquewhite;
+    color: #624735;
+    padding: 1rem 4rem;
+    margin: 0 1rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(89, 43, 8, 0.3);
+    transition: transform 0.2s ease; 
+}
+
+#divcard_new a:hover {
+    transform: translateY(-0.5rem);
+}
+
+#divcard_edit a {
+    background-color: antiquewhite;
+    color: #624735;
+    padding: 1rem 4rem;
+    margin: 0 1rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(89, 43, 8, 0.3);
+    transition: transform 0.2s ease; 
+}
+
+#divcard_edit a:hover {
+    transform: translateY(-0.5rem);
+}
+
+
+
+
 
 
 

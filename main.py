@@ -55,11 +55,6 @@ def index():
     return render_template("menu/index.html")
 
 
-@app.route("/index_new")
-def index_new():
-    return render_template("menu/index_new.html")
-
-
 # 材料登録ページ
 @app.route("/new_ing", methods=["GET", "POST"])
 def new_ing():
@@ -128,12 +123,6 @@ def new_dish():
         return render_template(
             "menu/new_dish.html", ing_list=ing_list, cat_list=cat_list
         )
-
-
-# 編集メニューページ
-@app.route("/index_edit")
-def index_edit():
-    return render_template("menu/index_edit.html")
 
 
 # カテゴリー別材料リスト

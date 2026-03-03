@@ -12,15 +12,27 @@
 <body>
     <header>
         <h1>一人暮らしの味方</h1>
-        <hr>
-        <h2>今日の献立</h2>
-        <p>材料を選んで料理を検索したり，材料や料理を登録・編集したりできます．</p>
+        <h2>今日の献立</h2><br>
     </header>
+    <hr><br>
     <!-- メニュー -->
     <main>
-        <a id="search" class="search" href="{{ url_for('search') }}">作れる料理をさがす</a><br>
-        <a id="new" href="{{ url_for('index_new') }}">料理や材料を登録する</a><br>
-        <a id="edit" href="{{ url_for('index_edit') }}">料理や材料を編集する</a><br>
+        <div class="selecter_container">
+            <a class="search" href="{{ url_for('search') }}">
+                <span id="search">さがす</span>
+                <p>登録済みの材料からあるものを選択して，いま作れる料理をさがすことができます．</p>
+            </a>
+            <div class="new_edit_container">
+                <a class="new_edit" href="{{ url_for('index_new') }}">
+                    <span id="new">ふやす</span>
+                    <p>新しい材料や料理を追加できます．</p>
+                </a>
+                <a class="new_edit" href="{{ url_for('index_edit') }}">
+                    <span id="edit">ととのえる</span>
+                    <p>登録済みの材料や料理を編集できます．</p>
+                </a>
+            </div>
+        </div>
     </main>
     <script src="{{ url_for('static', filename='javascript/menu/index.js') }}"></script>
 </body>

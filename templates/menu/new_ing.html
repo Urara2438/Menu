@@ -12,31 +12,28 @@
 <body>
     <header>
         <h1>一人暮らしの味方</h1>
-        <hr>
-        <h2>材料登録</h2>
-        <p>材料を登録しましょう</p>
+        <h2>今日の献立</h2><br>
     </header>
+    <hr><br>
     <form method="POST">
-    <section>
-        <label for="set_ing_name">材料の名前</label>
-        <input type="text" id="set_ing_name" name="new_ing_name" required>
-        <br>
-        <label for="cat_select">カテゴリー</label>
-        <select id="cat_select" name="cat_id" required>
-            <option value="" disabled selected>カテゴリーを選択</option>
-            {% for cat in cat_list %}
-                <option value="{{ cat.cat_id }}">{{ cat.cat_name }}</option> 
-                <!--catはCategoryオブジェクトなのでそれのインスタンス変数にcat.cat_idやcat.cat_nameでアクセスする-->
-            {% endfor %}
-        </select>
-        <button type="submit" onclick="return confirm('登録します．よろしいですか？')">登録</button> <!--cat_id=cat.cat_idを送信-->
-    </section>
+        <div class="form-card">
+            <label for="set_ing_name">材料の名前</label>
+            <input type="text" id="set_ing_name" name="new_ing_name" required>
+            <br>
+            <label for="cat_select">カテゴリー</label>
+            <select id="cat_select" name="cat_id" required>
+                <option value="" disabled selected>カテゴリーを選択</option>
+                {% for cat in cat_list %}
+                    <option value="{{ cat.cat_id }}">{{ cat.cat_name }}</option> 
+                    <!--catはCategoryオブジェクトなのでそれのインスタンス変数にcat.cat_idやcat.cat_nameでアクセスする-->
+                {% endfor %}
+            </select>
+            <button type="submit" onclick="return confirm('登録します．よろしいですか？')">登録</button> <!--cat_id=cat.cat_idを送信-->
+        </div>
     </form>
-    <br>
-    <hr>
-    <br>
+    <br><hr><br>
     <footer>
-        <a href="{{ url_for('index') }}">ホームに戻る</a>
-    </footer>
+        <a href="{{ url_for('index') }}">ホームに戻る</a><br>
+    </footer> 
 </body>
 </html>

@@ -12,28 +12,21 @@
 <body>
     <header>
         <h1>一人暮らしの味方</h1>
-        <hr>
-        <h2>料理一覧</h2>
-        <p>登録されている料理の一覧を表示します．</p>
-        <br>
+        <h2>作れる料理をさがす</h2><br>
     </header>
+    <hr><br>
     <main>
         {% if dish_list %}
             {% for dish in dish_list %}
                 <a href="{{ url_for('edit_dish', dish_id=dish.dish_id) }}">{{ dish.dish_name }}</a>
             {% endfor %}
         {% else %}
-            <p>登録されている料理はありません．</p>
+            <p>登録されている料理はありません</p>
         {% endif %}
     </main>
-    <br>
-    <hr>
-    <br>
+    <br><hr><br>
     <footer>
-        <a href="{{ url_for('index_edit') }}">編集メニューに戻る</a>
-        <br>
-        <a href="{{ url_for('index') }}">ホームに戻る</a>
-        <br>
-    </footer>
+        <a href="{{ url_for('index') }}">ホームに戻る</a><br>
+    </footer> 
 </body>
 </html>

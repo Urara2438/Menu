@@ -12,33 +12,27 @@
 <body>
     <header>
         <h1>一人暮らしの味方</h1>
-        <hr>
-        <h2>材料の編集</h2>
-        <p>登録済みの材料を編集したり削除したりできます．</p>
+        <h2>今日の献立</h2><br>
     </header>
+    <hr><br>
     <form method="POST">
-    <section>
-        <label for="edit_ing_name">材料の名前</label>
-        <input type="text" id="edit_ing_name" name="edited_ing_name" value="{{ now_ing.ing_name }}" required>
-        <br>
-        <label for="cat_select">カテゴリー</label>
-        <select id="cat_select" name="edited_cat_id" required>
-            <option value="" disabled selected>カテゴリーを選択</option>
-            {% for cat in cat_list %}
-                <option value="{{ cat.cat_id }}">{{ cat.cat_name }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">編集</button>
-    </section>
+        <div class="form-card">
+            <label for="edit_ing_name">材料の名前</label>
+            <input type="text" id="edit_ing_name" name="edited_ing_name" value="{{ now_ing.ing_name }}" required>
+            <br>
+            <label for="cat_select">カテゴリー</label>
+            <select id="cat_select" name="edited_cat_id" required>
+                <option value="" disabled selected>カテゴリーを選択</option>
+                {% for cat in cat_list %}
+                    <option value="{{ cat.cat_id }}">{{ cat.cat_name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">編集</button>
+        </div>
     </form>
-    <br>
-    <hr>
-    <br>
+    <br><hr><br>
     <footer>
-        <a href="{{ url_for('list_ing') }}">材料一覧に戻る</a>
-        <br>
-        <a href="{{ url_for('index') }}">ホームに戻る</a>
-        <br>
-    </footer>
+        <a href="{{ url_for('index') }}">ホームに戻る</a><br>
+    </footer> 
 </body>
 </html>

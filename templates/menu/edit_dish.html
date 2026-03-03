@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一人暮らしの味方 - ホーム</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/search.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -12,46 +12,43 @@
 <body>
     <header>
         <h1>一人暮らしの味方</h1>
-        <hr>
-        <h2>料理の編集</h2>
-        <p>登録済みの料理を編集したり削除したりできます．</p>
+        <h2>作れる料理をさがす</h2><br>
     </header>
-    <form method="POST">
-        <h3 class="step">① 料理の名前を入力</h3>
-        <label for="edit_dish_name">料理の名前</label>
-        <input type="text" id="edit_dish_name" name="edited_dish_name" value="{{ now_dish.dish_name }}" required>
-        <br>
-
-        <h3 class="step">② 材料を選択</h3>
-        {% for cat in cat_list %}
-        <section>
-            <h3>{{ cat.cat_name }}</h3>
-            {% for ing in ing_list if ing.cat_id == cat.cat_id %}
-            <div class="checkbox-grid">
-                <label>
-                    <input type="checkbox" name="edited_ing_id_needed_list" value="{{ ing.ing_id }}">
-                    {{ ing.ing_name }}
-                </label>    
-            </div>                
-            {% else %}
-            <div class="empty_message">
-                <p>登録されている材料はありません．</p>
+    <hr><br>  
+    <main>
+        <form method="POST">
+            <!-- 料理名入力 -->
+            <div class="input_name">
+                <h3>① 料理の名前を入力</h3>
+                <input type="text" id="edit_dish_name" name="edited_dish_name" value="{{ now_dish.dish_name }}" placeholder="料理名を入力" required><br>
             </div>
-            {% endfor %}        
-        </section>
-        {% endfor %}
-        <!--登録ボタン -->
-        <br>
-        <button type="submit" onclick="return confirm('登録します．よろしいですか？')">編集</button>
-    </form>
-    <br>
-    <hr>
-    <br>
+            <!-- 材料選択 -->
+            <div>
+                <h3>② 材料を選択</h3>
+                <div class="container">
+                {% for cat in cat_list %}
+                <div class="category_card">
+                    <h3>{{ cat.cat_name }}</h3>
+                    <div class="item-grid">
+                    {% for ing in ing_list if ing.cat_id == cat.cat_id %}
+                        <label>
+                            <input type="checkbox" name="edited_ing_id_needed_list" value="{{ ing.ing_id }}">
+                            {{ ing.ing_name }}
+                        </label>
+                    {% else %}
+                    <p>材料なし</p>
+                    {% endfor %}  
+                    </div>
+                </div>
+                {% endfor %}
+                <br>
+                <button type="submit" onclick="return confirm('編集します．よろしいですか？')">編集</button>
+            </div>
+        </form>
+    </main>
+    <br><hr><br>
     <footer>
-        <a href="{{ url_for('list_dish') }}">料理一覧に戻る</a>
-        <br>
-        <a href="{{ url_for('index') }}">ホームに戻る</a>
-        <br>
+        <a href="{{ url_for('index') }}">ホームに戻る</a><br>
     </footer>
 </body>
 </html>

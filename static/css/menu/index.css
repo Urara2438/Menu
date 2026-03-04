@@ -64,8 +64,8 @@ p {
     text-align: justify;
 }
 
-/* セレクトメニューのスタイル*/
-.selecter_container {
+/* カードコンテナのスタイル*/
+.card_container {
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -82,23 +82,18 @@ p {
     height: 36rem;
 }
 
-.search img {
-    display: block;
-    margin: 0 auto;
-    margin-top: 1rem;
-    opacity: 0.5; /*半透明にする*/
-}
 
-.new_edit {
+
+.before_split {
     width: 36rem;
     height: 17rem;
 }
 
-.new_edit:hover, .search:hover{
+.before_split:hover, .search:hover{
     transform: translateY(-1rem); /* hover時に少し浮き上がる */
 }
 
-.new_edit, .search {
+.before_split, .search {
     box-sizing: border-box;
     padding: 3rem;
     border-radius: 3rem;
@@ -107,6 +102,29 @@ p {
     box-shadow: 0rem 0.3rem 0.7rem rgba(89, 43, 8, 0.3);
     text-decoration: none;
     transition: transform 0.2s ease; 
+    overflow: hidden;
+}
+
+/*カード内部のテキストのスタイル*/
+.innertext {
+    font-size: 1.4rem; 
+    font-weight: normal
+}
+
+/* 分割前のカードの画像のスタイル */
+.before_split_img {
+    width: 450px;
+    margin-top: -150px;
+    margin-right: -150px;
+}
+
+/*分割後のカードの画像のスタイル*/
+.after_split_img {
+    margin-top: -100px;
+    margin-left: -50px;
+    position: relative;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 #search, #new, #edit {
@@ -123,11 +141,37 @@ p {
   display: none;
 }
 
+/* ふやすカードとととのえるカードの同じ場所で入れ替えるための枠 */
+.split {
+    position: relative;
+    width: 36rem;
+    height: 17rem;
+}
+
+/* 分割前と分割後の要素を同じ場所に重ねるためのスタイル */
+.split > .before_split,
+.split > .after_split {
+    position: absolute;
+    inset: 0;
+}
+
+.after_split {
+    display: none;
+    justify-content: center;
+    gap: 2rem;
+    align-items: stretch;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#new_ing, #new_dish, #edit_ing, #edit_dish {
+    overflow: hidden;
+}
+
 #divcard_edit, #divcard_new {
     display: none;
 }
-
-
 
 #divcard_new a {
     background-color: rgba(255, 255, 255, 0.3);
@@ -141,6 +185,7 @@ p {
     text-decoration: none;
     box-shadow: 0rem 0.2rem 0.5rem rgba(89, 43, 8, 0.3);
     box-sizing: border-box;
+    transition: transform 0.2s ease;
 }
 
 #divcard_new a:hover {
@@ -159,6 +204,7 @@ p {
     text-decoration: none;
     box-shadow: 0rem 0.2rem 0.5rem rgba(89, 43, 8, 0.3);
     box-sizing: border-box;
+    transition: transform 0.2s ease;
 }
 
 #divcard_edit a:hover {

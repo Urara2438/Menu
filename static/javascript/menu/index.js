@@ -1,6 +1,8 @@
 const cardSearch = document.getElementById("card_search")
 const cardNew = document.getElementById("card_new");
 const divNew = document.getElementById("divcard_new");
+const splitNew = document.getElementById("split_new");
+const splitEdit = document.getElementById("split_edit");
 
 const cardEdit = document.getElementById("card_edit");
 const divEdit = document.getElementById("divcard_edit");
@@ -18,30 +20,38 @@ const dishImgList = [
 
 
 //ふやすカード
-cardNew.addEventListener("mouseenter", () => {
+splitNew.addEventListener("mouseenter", () => {
     cardNew.classList.add("hidden");
     divNew.style.display = "flex";
-    divNew.style.justifyContent = "center";
-    divNew.style.gap = "2rem";
+    setTimeout(() => {
+        divNew.style.opacity = "1";
+    }, 150);
 });
 
-cardNew.addEventListener("mouseleave", () => {
-    divNew.style.display = "none";
-    cardNew.classList.remove("hidden");
+splitNew.addEventListener("mouseleave", () => {
+    divNew.style.opacity = "0";
+    setTimeout(() => {
+        divNew.style.display = "none";
+        cardNew.classList.remove("hidden");
+    }, 200);
 });
 
 
 //ととのえるカード
-cardEdit.addEventListener("mouseenter", () => {
+splitEdit.addEventListener("mouseenter", () => {
     cardEdit.classList.add("hidden");
     divEdit.style.display = "flex";
-    divEdit.style.justifyContent = "center";
-    divEdit.style.gap = "2rem";
+    setTimeout(() => {
+        divEdit.style.opacity = "1";
+    }, 150);
 });
 
-cardEdit.addEventListener("mouseleave", () => {
-    divEdit.style.display = "none";
-    cardEdit.classList.remove("hidden");
+splitEdit.addEventListener("mouseleave", () => {
+    divEdit.style.opacity = "0";
+    setTimeout(() => {
+        divEdit.style.display = "none";
+        cardEdit.classList.remove("hidden");
+    }, 200);
 });
 
 

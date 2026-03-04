@@ -19,23 +19,29 @@ const dishImgList = [
 
 //ふやすカード
 cardNew.addEventListener("mouseenter", () => {
+    cardNew.classList.add("hidden");
     divNew.style.display = "flex";
     divNew.style.justifyContent = "center";
+    divNew.style.gap = "2rem";
 });
 
 cardNew.addEventListener("mouseleave", () => {
     divNew.style.display = "none";
+    cardNew.classList.remove("hidden");
 });
 
 
 //ととのえるカード
 cardEdit.addEventListener("mouseenter", () => {
+    cardEdit.classList.add("hidden");
     divEdit.style.display = "flex";
     divEdit.style.justifyContent = "center";
+    divEdit.style.gap = "2rem";
 });
 
 cardEdit.addEventListener("mouseleave", () => {
     divEdit.style.display = "none";
+    cardEdit.classList.remove("hidden");
 });
 
 

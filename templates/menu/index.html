@@ -23,27 +23,28 @@
                 <p>登録済みの材料からあるものを選択して，いま作れる料理をさがすことができます．</p>
                 <img id="dish_img" width="250px">
             </a>
-            <!-- ふやすカードとととのえるカードのセット -->
-            <div class="new_edit_container">
-                <!-- ふやすカード -->
-                <div id="card_new" class="new_edit">
+            
+            <div class="new_edit_container"><!-- ふやすカードとととのえるカードのコンテナ -->
+                <div id="card_new" class="new_edit"><!-- ふやすカード -->
                     <span id="new">ふやす</span>
                     <p>新しい材料や料理を追加できます．</p>
-                    <!--ホバーされたら表示-->
-                    <div id="divcard_new">
-                        <a href="{{ url_for('new_ing') }}">材料</a>
-                        <a href="{{ url_for('new_dish') }}">料理</a>
-                    </div>
+                    <span style="display: flex; justify-content: right;"><img src="/static/img/category/卵・乳製品.png" width="100px"></span>
                 </div>
-                <!-- ととのえるカード -->
-                <div id="card_edit" class="new_edit">
+                <!--ホバーされたら表示-->
+                <div id="divcard_new">
+                    <a href="{{ url_for('new_ing') }}">材料<br><span style="font-size: 1.4rem; font-weight: normal;">をふやす</span></a>
+                    <a href="{{ url_for('new_dish') }}">料理<br><span style="font-size: 1.4rem; font-weight: normal;">をふやす</span></a>
+                </div>
+                <div id="card_edit" class="new_edit"><!-- ととのえるカード -->
                     <span id="edit">ととのえる</span>
                     <p>登録済みの材料や料理を編集できます．</p>
+                    <span style="display: flex; justify-content: right;"><img src="/static/img/category/肉類.png" width="100px"></span>
+                </div>
                     <!--ホバーされたら表示-->
-                    <div id="divcard_edit">
-                        <a href="{{ url_for('list_ing') }}">材料</a>
-                        <a href="{{ url_for('list_dish') }}">料理</a>
-                    </div>
+                <div id="divcard_edit">
+                    <a href="{{ url_for('list_ing') }}">材料<br><span style="font-size: 1.4rem; font-weight: normal;">をととのえる</span></a>
+                    <a href="{{ url_for('list_dish') }}">料理<br><span style="font-size: 1.4rem; font-weight: normal;">をととのえる</span></a>
+                </div>
                 </div>
             </div>
         </div>

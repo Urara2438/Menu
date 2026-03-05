@@ -1,219 +1,225 @@
+/* 共通のスタイル設定 */
 html{
     font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 62.5%;
+    font-size: 62.5%; /* 1rem = 10px */
 }
 
+/* bodyのスタイル=================================================================================== */
 body{
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* 基本のフォントサイズを1.4remに設定（14px相当） */
     color: #624735;
     background-image: url("/static/img/menu_backimg.png");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-
 }
 
-@media (max-width: 900px) {
+/* 画面幅が900px以下の場合に背景画像を変更 */
+@media (max-width: 90rem) {
     body{
         background-image: url("/static/img/menu_backimg_mobile.png");
     }
 }
 
-/* header， mainタグのスタイル ---------------------------------------------------------------------------------------------------------- */
+/* header， mainタグのスタイル======================================================================= */
 header, main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* hタグのスタイル ---------------------------------------------------------------------------------------------------------- */
-/* 一人暮らしの味方 */
+/* hタグのスタイル=================================================================================== */
+/* 「一人暮らしの味方」のスタイル */
 h1 {
-    color: #624735;
-    text-align: center;
-    margin-bottom: 0rem; /* h1とh2の間のスペースをなくすためにmargin-bottomを0に設定 */
+    font-size: 3rem;
 }
 
-/* 今日の献立 */
+/* 「今日の献立」のスタイル */
 h2 {
-    color: #624735;
+    /*フォント設定*/
     font-weight: 400;
-    font-size: 1.6rem;
     text-align: center;
-    background-color: antiquewhite;
-    width: 40rem;
+
+    /*ボックス設定*/
+    max-width: 40rem;
+    width: 90%;
     padding: 0.5rem;
     border-radius: 3rem;
-    margin-bottom: 0rem;
+    margin: 0rem; /* h2とhrの間のスペースをなくすためにmargin-bottomを0に設定 */
+
+    /* 色設定 */
+    background-color: antiquewhite;
 }
 
-/* hrタグのスタイル ---------------------------------------------------------------------------------------------------------- */
+/* hrタグのスタイル */
 hr {
-    border: none;
-    height: 0.2rem;
+    height: 0.2rem; /* 線の太さ */
+    border: none; /* デフォルトの境界線を消す */
     background-color: rgba(120, 90, 60, 0.6);
-    width: 90%;
-    margin-top: 0rem;
-    margin-bottom: 0.5rem;
+    width: 90%; 
 }
 
 
-/* pタグのスタイル ---------------------------------------------------------------------------------------------------------- */
-p {
-    text-align: justify;
-}
-
-/* カードコンテナのスタイル*/
+/* 「さがす」，「ふやす」，「ととなえる」カードのスタイル=================================================================================== */
+/* すべてのカードコンテナ */
 .card_container {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2rem; /* カード間のスペース */
+    flex-wrap: wrap; /* 画面幅が狭い場合にカードを折り返す */
 }
 
-.new_edit_container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+/* すべてのカードの共通スタイル */
+.split_before, .search {
+    /* フォント設定 */
+    color: #624735; /* aタグなので色を指定 */
+    text-decoration: none;
+
+    /* ボックス設定 */
+    box-sizing: border-box;
+    padding: 3rem;
+    border-radius: 3rem;
+    box-shadow: 0rem 0.3rem 0.7rem rgba(89, 43, 8, 0.3);
+    overflow: hidden;
+
+    /* 色設定 */
+    background-color: rgba(255, 255, 255, 0.3);
+
+    /* アニメーション設定 */
+    transition: transform 0.2s ease;
 }
 
+
+
+
+/* さがすカード =========================================================================== */
+/* さがすカードのサイズ */
 .search {
     width: 36rem;
     height: 36rem;
 }
 
+/* さがすカードをホバーしたときのアニメーション */
+.search:hover{
+    transform: translateY(-1rem); 
+}
 
+/* さがすカード内部のテキスト */
+#search{
+    text-decoration: none;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
 
-.before_split {
+/* ふやすカード, ととのえるカード =========================================================================== */
+
+/* ふやすカード, ととのえるカードのコンテナ */
+.new_edit_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* 分割前--------------------------------------------------------------------------------------------- */
+/* 分割前のカードのサイズ */
+.split_before {
+    width: 36rem;
+    height: 17rem; 
+}
+
+/* 分割前のカードをホバーしたときのアニメーション */
+.split_before:hover {
+    transform: translateY(-1rem); 
+}
+
+/* 分割前のカード内部の画像のスタイル */
+.split_before_img {
+    width: 45rem;
+    margin-top: -15rem;
+    margin-right: -15rem;
+}
+
+/* 分割後 --------------------------------------------------------------------------------------------- */
+/* 分割後のカード内部のテキストのスタイル */
+#new, #edit {
+    text-decoration: none;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.innertext {
+    font-size: 1.4rem; 
+    font-weight:bold;
+}
+
+/* JSで表示・非表示を切り替えるためのクラス */
+.hidden {
+  display: none;
+}
+
+/* ふやすカード, ととのえるカードをまとめる枠 */
+.split_card_container {
+    position: relative; /* 絶対配置する要素(.split_before, .split_after)の基準となる */
     width: 36rem;
     height: 17rem;
 }
 
-.before_split:hover, .search:hover{
-    transform: translateY(-1rem); /* hover時に少し浮き上がる */
+/* 分割後のカードのスタイル */
+.split_after_container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    opacity: 0; /* 初期状態では透明にしておく */
+    transition: opacity 0.2s ease;
 }
 
-.before_split, .search {
-    box-sizing: border-box;
-    padding: 3rem;
-    border-radius: 3rem;
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #624735;
-    box-shadow: 0rem 0.3rem 0.7rem rgba(89, 43, 8, 0.3);
-    text-decoration: none;
-    transition: transform 0.2s ease; 
-    overflow: hidden;
-}
-
-/*カード内部のテキストのスタイル*/
-.innertext {
-    font-size: 1.4rem; 
-    font-weight: normal
-}
-
-/* 分割前のカードの画像のスタイル */
-.before_split_img {
-    width: 450px;
-    margin-top: -150px;
-    margin-right: -150px;
+/* 分割前と分割後の要素を同じ場所に重ねるためのスタイル */
+.split_card_container > .split_before,
+.split_card_container > .split_after_container {
+    position: absolute; /* .split_card_containerを基準に絶対配置 */
+    inset: 0; /* 上下左右を0にして親要素内で完全に重ねる */
+              /* top: 0; left: 0; right: 0; bottom: 0; と同じ意味 */
 }
 
 /*分割後のカードの画像のスタイル*/
-.after_split_img {
-    margin-top: -100px;
-    margin-left: -50px;
+.split_after_img {
+    margin-top: -10rem;
+    margin-left: -5rem;
     position: relative;
     z-index: -1;
     opacity: 0.5;
 }
 
-#search, #new, #edit {
+/* 分割後のカードのスタイル */
+.split_after_container a {
+    /* フォント設定 */
     color: #624735;
-    text-decoration: none;
     font-size: 2.4rem;
     font-weight: bold;
-    text-align: justify;
-}
+    text-decoration: none;
 
-
-/* jsで表示する要素のスタイル ---------------------------------------------------------------------------------------------------------- */
-.hidden {
-  display: none;
-}
-
-/* ふやすカードとととのえるカードの同じ場所で入れ替えるための枠 */
-.split {
-    position: relative;
-    width: 36rem;
+    /* ボックス設定 */
+    width: 17rem;
     height: 17rem;
-}
-
-/* 分割前と分割後の要素を同じ場所に重ねるためのスタイル */
-.split > .before_split,
-.split > .after_split {
-    position: absolute;
-    inset: 0;
-}
-
-.after_split {
-    display: none;
-    justify-content: center;
-    gap: 2rem;
-    align-items: stretch;
-
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-#new_ing, #new_dish, #edit_ing, #edit_dish {
+    padding: 3rem;
+    border-radius: 3rem;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(89, 43, 8, 0.3);
+    box-sizing: border-box;
     overflow: hidden;
-}
 
-#divcard_edit, #divcard_new {
-    display: none;
-}
-
-#divcard_new a {
+    /* 色設定 */
     background-color: rgba(255, 255, 255, 0.3);
-    color: #624735;
-    font-size: 2.4rem;
-    font-weight: bold;
-    width: 17rem;
-    height: 17rem;
-    padding: 3rem;
-    border-radius: 3rem;
-    text-decoration: none;
-    box-shadow: 0rem 0.2rem 0.5rem rgba(89, 43, 8, 0.3);
-    box-sizing: border-box;
+
+    /* アニメーション設定 */
     transition: transform 0.2s ease;
 }
 
-#divcard_new a:hover {
-    transform: translateY(-0.5rem);
+.split_after_container a:hover{
+    transform: translateY(-1rem);
 }
-
-#divcard_edit a {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #624735;
-    font-size: 2.4rem;
-    font-weight: bold;
-    width: 17rem;
-    height: 17rem;
-    padding: 3rem;
-    border-radius: 3rem;
-    text-decoration: none;
-    box-shadow: 0rem 0.2rem 0.5rem rgba(89, 43, 8, 0.3);
-    box-sizing: border-box;
-    transition: transform 0.2s ease;
-}
-
-#divcard_edit a:hover {
-    transform: translateY(-0.5rem);
-}
-
-
-
-
 
 
 

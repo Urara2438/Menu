@@ -17,63 +17,65 @@
     <hr><br>
     <main>
         <div class="card_container"><!-- カードコンテナ(さがす，ふやす，とととのえる) -->
+
             <!--さがすカード==========================================================================================-->
             <a id="card_search" class="search" href="{{ url_for('search') }}">
                 <span id="search">さがす</span>
                 <p>いま作れる料理をさがす</p>
                 <span style="display: flex; justify-content: center;">
-                    <img src="/static/img/index_img/dishes3.png" width="600px" style="margin-top:-80px; opacity: 0.7;">
+                <img src="/static/img/index_img/dishes3.png" width="600px" style="margin-top:-80px;">
                 </span>
             </a>
-            <!--さがすカード(終了)==========================================================================================-->
-            
+            <!--さがすカード(終了)==========================================================================================--> 
 
             <div class="new_edit_container"><!-- カードコンテナ(ふやす，とととのえる) -->
                 <!--ふやすカード==========================================================================================-->
-                <div class="split" id="split_new"> 
+                <div class="split_card_container" id="split_new"> 
 
                     <!--ふやす(分割前)-->
-                    <div id="card_new" class="before_split">
+                    <div id="card_new" class="split_before">
                         <span id="new">ふやす</span>
                         <p>材料や料理を追加</p>
-                        <span style="display: flex; justify-content: center">
-                            <img class="before_split_img" src="/static/img/index_img/eggs.png">
-                        </span>                  
+                        <img class="split_before_img" src="/static/img/index_img/eggs.png">                    
                     </div>
 
                     <!--ふやす(分割後)-->
-                    <div id="divcard_new" class="after_split">
+                    <div id="card_new_splitted" class="split_after_container">
                         <a id="new_ing" href="{{ url_for('new_ing') }}">材料
-                            <br><span class="innertext">をふやす</span>
-                            <img class="after_split_img" src="/static/img/index_img/ing_1.png" width="250px"></a>
+                        <br><span class="innertext">をふやす</span>
+                        <img class="split_after_img" src="/static/img/index_img/ing_1.png" width="250px">
+                        </a>
+
                         <a id="new_dish" href="{{ url_for('new_dish') }}">料理
-                            <br><span class="innertext">をふやす</span>
-                            <img class="after_split_img" src="/static/img/index_img/humburg.png" width="300px"></a>
+                        <br><span class="innertext">をふやす</span>
+                        <img class="split_after_img" src="/static/img/index_img/humburg.png" width="300px">
+                        </a>
                     </div>
 
                 </div>
                 <!--ふやすカード(終了)==========================================================================================-->
 
                 <!--ととのえるカード==========================================================================================-->
-                <div class="split" id="split_edit"> 
+                <div class="split_card_container" id="split_edit"> 
 
                     <!--ととのえる(分割前) -->
-                    <div id="card_edit" class="before_split">
+                    <div id="card_edit" class="split_before">
                         <span id="edit">ととのえる</span>
                         <p>材料や料理を編集</p>
-                        <span style="display: flex; justify-content: center"> <!-- 右寄せ -->
-                            <img class="before_split_img" src="/static/img/index_img/meat.png">
-                        </span>                        
+                        <img class="split_before_img" src="/static/img/index_img/meat.png">           
                     </div>
 
                     <!--ととのえる(分割後)-->
-                    <div id="divcard_edit" class="after_split">
-                        <a id="edit_ing" href="{{ url_for('list_ing') }}">
-                            材料<br><span class="innertext">をととのえる</span>
-                            <img class="after_split_img" src="/static/img/index_img/ing_2.png" width="250px"></a>
-                        <a id="edit_dish" href="{{ url_for('list_dish') }}">
-                            料理<br><span class="innertext">をととのえる</span>
-                            <img class="after_split_img" src="/static/img/index_img/omrice.png" width="300px"></a>
+                    <div id="card_edit_splitted" class="split_after_container">
+                        <a id="edit_ing" href="{{ url_for('list_ing') }}">材料
+                        <br><span class="innertext">をととのえる</span>
+                        <img class="split_after_img" src="/static/img/index_img/ing_2.png" width="250px">
+                        </a>
+
+                        <a id="edit_dish" href="{{ url_for('list_dish') }}">料理
+                        <br><span class="innertext">をととのえる</span>
+                        <img class="split_after_img" src="/static/img/index_img/omrice.png" width="300px">
+                        </a>
                     </div>
 
                 </div>

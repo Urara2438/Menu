@@ -1,65 +1,9 @@
-/* 共通のスタイル設定 */
-html{
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 62.5%; /* 1rem = 10px */
-}
-
-/* bodyのスタイル=================================================================================== */
-body{
-    font-size: 1.4rem; /* 基本のフォントサイズを1.4remに設定（14px相当） */
-    color: #624735;
-    background-image: url("/static/img/menu_backimg.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* 画面幅が900px以下の場合に背景画像を変更 */
-@media (max-width: 90rem) {
-    body{
-        background-image: url("/static/img/menu_backimg_mobile.png");
-    }
-}
-
 /* header， mainタグのスタイル======================================================================= */
 header, main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-/* hタグのスタイル=================================================================================== */
-/* 「一人暮らしの味方」のスタイル */
-h1 {
-    font-size: 3rem;
-}
-
-/* 「今日の献立」のスタイル */
-h2 {
-    /*フォント設定*/
-    font-weight: 400;
-    text-align: center;
-
-    /*ボックス設定*/
-    max-width: 40rem;
-    width: 90%;
-    padding: 0.5rem;
-    border-radius: 3rem;
-    margin: 0rem; /* h2とhrの間のスペースをなくすためにmargin-bottomを0に設定 */
-
-    /* 色設定 */
-    background-color: antiquewhite;
-}
-
-/* hrタグのスタイル */
-hr {
-    height: 0.2rem; /* 線の太さ */
-    border: none; /* デフォルトの境界線を消す */
-    background-color: rgba(120, 90, 60, 0.6);
-    width: 90%; 
-}
-
 
 /* 「さがす」，「ふやす」，「ととなえる」カードのスタイル=================================================================================== */
 /* すべてのカードコンテナ */

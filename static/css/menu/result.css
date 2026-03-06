@@ -1,25 +1,3 @@
-html{
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 62.5%;
-}
-
-body{
-    font-size: 1.4rem;
-    color: #624735;
-    background-image: url("/static/img/menu_backimg.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-
-}
-
-@media (max-width: 900px) {
-    body{
-        background-image: url("/static/img/menu_backimg_mobile.png");
-    }
-}
-
 /* header， mainタグのスタイル ---------------------------------------------------------------------------------------------------------- */
 header, main{
     display: flex;
@@ -27,125 +5,74 @@ header, main{
     align-items: center;
 }
 
-
-
-/* hタグのスタイル ---------------------------------------------------------------------------------------------------------- */
-h1 {
-    color: #624735;
-    text-align: center;
-    margin-bottom: 0rem; /* h1とh2の間のスペースをなくすためにmargin-bottomを0に設定 */
-}
-
-h2 {
-    color: #624735;
-    font-weight: 400;
-    font-size: 1.6rem;
-    text-align: center;
-    background-color: antiquewhite;
-    width: 40rem;
-    padding: 0.5rem;
-    border-radius: 3rem;
-    margin-bottom: 0rem;
-}
-
+/* 検索結果の料理名のスタイル ---------------------------------------------------------------------------------------------------------- */
 h3{ 
     color: #624735;
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
-/* hrタグのスタイル ---------------------------------------------------------------------------------------------------------- */
-hr {
-    border: none;
-    height: 0.2rem;
-    background-color: rgba(120, 90, 60, 0.6);
-    width: 90%;
-    margin-top: 0rem;
-    margin-bottom: 0.5rem;
-}
-
-
-/* 「レシピを検索」ボタンのスタイル ---------------------------------------------------------------------------------------------------------- */
-#search-recipe {
-    background-color: rgba(83, 128, 0, 0.08);
-    width: 50%;
-    max-width: 20rem;
-    border-radius: 1.5rem;
-    text-decoration: none;
-    color: rgba(83, 128, 0, 0.825);
-    text-align: center;
-    font-size: 1.6rem;
-}
-
-#search-recipe:hover{
-    background-color: rgba(83, 128, 0, 0.3);
-}
-
-/* pタグのスタイル ---------------------------------------------------------------------------------------------------------- */
-p {
-    color: #624735;
-    text-align: justify;
-    width: 80%;
-    max-width: fit-content; /* テキストの幅を内容に合わせて調整 */
-}
-
 /* result-cardのスタイル ---------------------------------------------------------------------------------------------------------- */
-.result-container {
+.result-card-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
 }
 
 @media (max-width: 900px) {
-    .result-container {
+    .result-card-container {
         grid-template-columns: 1fr; /* 画面幅が900px以下の場合は1列にする */
     }
 }
 
 .result-card {
+    /* フォント設定 */
+    font-size: 1.6rem;
+
+    /* ボックス設定 */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: rgba(255, 255, 255, 0.75);
     width: 36rem;
     height: fit-content;
     padding: 1rem 1rem 1rem 3rem;
     border-radius: 3rem;
     box-shadow: 0rem 0.3rem 0.7rem rgba(89, 43, 8, 0.3);
     margin-bottom: 1rem; /* カード間のスペース */
-    font-size: 1.6rem;
+
+    /* 色設定 */
+    background-color: rgba(255, 255, 255, 0.75); 
 }
 
 .result-card a { 
     margin: 1rem;
-    background-color: antiquewhite;
     width: 60%;
     max-width: 30rem;
     padding: 0.5rem;
     border-radius: 1.5rem;
+    background-color: antiquewhite;
 }
 
 
-/* footerのスタイル*/
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-footer a {
-    background-color: rgba(255, 255, 255, 0.3);
-    width: 20rem;
-    padding: 1.5rem;
-    border-radius: 3rem;
-    box-shadow: 0rem 0.3rem 0.7rem rgba(89, 43, 8, 0.3);
-    text-decoration: none;
-    color: #624735;
+/* 「レシピを検索」ボタンのスタイル ---------------------------------------------------------------------------------------------------------- */
+#search-recipe {
+    /* フォント設定 */
     text-align: center;
     font-size: 1.6rem;
-    transition: transform 0.2s ease; /* hover時のアニメーション */
+    text-decoration: none;
+
+    /* ボックス設定 */
+    width: 50%;
+    max-width: 20rem;
+    border-radius: 1.5rem;
+
+    /* 色設定 */
+    color: rgba(83, 128, 0, 0.825);
+    background-color: rgba(83, 128, 0, 0.08);
 }
 
-footer a:hover{
-    transform: translateY(-0.5rem); /* hover時に少し浮き上がる */
+#search-recipe:hover{
+    background-color: rgba(83, 128, 0, 0.3);
 }
+
+

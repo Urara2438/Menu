@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一人暮らしの味方 - 料理検索</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/search.css') }}">
+    <title>一人暮らしの味方 - さがす</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/search + new_dish + edit_dish.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -12,15 +13,21 @@
 <body>
     <header>
         <h1>一人暮らしの味方</h1>
-        <h2>作れる料理をさがす</h2><br>
+        <h2>さがす</h2><br>
     </header>
     <hr><br>    
-    <main>
-        <form method="POST" class="container">
+
+   
+    <form method="POST">
+        <div class="categorycard_container"><!-- カテゴリカードのコンテナ -->
+            
             {% for cat in cat_list %}
-            <div class="category_card">
+            <!-- カテゴリカード -->
+            <div class="categorycard" style="
+            background-image: linear-gradient(rgba(255,255,255, 0.3), rgba(255,255,255,0.3)),
+            url('/static/img/category/{{ cat.cat_name }}.png'); ">
                 <h3>{{ cat.cat_name }}</h3>
-                <div class="item-grid">
+                <div class="checkbox-container">
                 {% for ing in ing_list if ing.cat_id == cat.cat_id %}
                     <label>
                         <input type="checkbox" name="searched_ing_id_list" value="{{ ing.ing_id }}">
@@ -32,11 +39,11 @@
                 </div>
             </div>
             {% endfor %}
-        <!--検索ボタン -->
-        <br>
+
+        </div><br><!-- カテゴリカードのコンテナ(終了) -->
         <button type="submit">さがす</button>
-        </form>
-    </main>
+    </form>
+
     <br><hr><br>
     <footer>
         <a href="{{ url_for('index') }}">ホームに戻る</a><br>

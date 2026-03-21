@@ -1,89 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一人暮らしの味方 - ホーム</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/base.css') }}">
+    <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/index.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
-<body>
+
+<body class="topPage">
     <header>
         <h1>一人暮らしの味方</h1>
-        <h2>ホーム</h2><br>
+        <h2>ホーム</h2>
     </header>
-    <hr><br>
     <main>
-        <div class="card_container"><!-- カードコンテナ(さがす，ふやす，とととのえる) -->
-
-            <!--さがすカード==========================================================================================-->
-            <a id="card_search" class="search" href="{{ url_for('search') }}">
-                <span id="search">さがす</span>
-                <p>いま作れる料理をさがす</p>
-                <span style="display: flex; justify-content: center;">
-                <img src="/static/img/index_img/dishes3.png" width="600px" style="margin-top:-80px;">
-                </span>
-            </a>
-            <!--さがすカード(終了)==========================================================================================--> 
-
-            <div class="new_edit_container"><!-- カードコンテナ(ふやす，とととのえる) -->
-                <!--ふやすカード==========================================================================================-->
-                <div class="split_card_container" id="split_new"> 
-
-                    <!--ふやす(分割前)-->
-                    <div id="card_new" class="split_before">
-                        <span id="new">ふやす</span>
-                        <p>材料や料理を追加</p>
-                        <img class="split_before_img" src="/static/img/index_img/eggs.png">                    
-                    </div>
-
-                    <!--ふやす(分割後)-->
-                    <div id="card_new_splitted" class="split_after_container">
-                        <a id="new_ing" href="{{ url_for('new_ing') }}">材料
-                        <br><span class="innertext">をふやす</span>
-                        <img class="split_after_img" src="/static/img/index_img/ing_1.png" width="250px">
-                        </a>
-
-                        <a id="new_dish" href="{{ url_for('new_dish') }}">料理
-                        <br><span class="innertext">をふやす</span>
-                        <img class="split_after_img" src="/static/img/index_img/humburg.png" width="300px">
-                        </a>
-                    </div>
-
+        <div class="btnContainer">
+            <div class="searchBtnArea">
+                <a class="searchBtn" href="{{ url_for('search') }}">さがす<br><span>今作れる料理をさがす</span></a>
+            </div>
+            <div class="newBtnArea" id="newBtnArea">
+                <button class="newBtn" id="newBtn">
+                    <p>ふやす<br><span>材料や料理を追加する</span></p>
+                </button>
+                <div class="newBtnAreaClicked hidden" id="newBtnAreaClicked">
+                    <a class="newIngBtn" href="{{ url_for('new_ing') }}">材料<br><span>をふやす</span></a>
+                    <a class="newDishBtn" href="{{ url_for('new_dish') }}">料理<br><span>をふやす</span></a>
                 </div>
-                <!--ふやすカード(終了)==========================================================================================-->
-
-                <!--ととのえるカード==========================================================================================-->
-                <div class="split_card_container" id="split_edit"> 
-
-                    <!--ととのえる(分割前) -->
-                    <div id="card_edit" class="split_before">
-                        <span id="edit">ととのえる</span>
-                        <p>材料や料理を編集</p>
-                        <img class="split_before_img" src="/static/img/index_img/meat.png">           
-                    </div>
-
-                    <!--ととのえる(分割後)-->
-                    <div id="card_edit_splitted" class="split_after_container">
-                        <a id="edit_ing" href="{{ url_for('list_ing') }}">材料
-                        <br><span class="innertext">をととのえる</span>
-                        <img class="split_after_img" src="/static/img/index_img/ing_2.png" width="250px">
-                        </a>
-
-                        <a id="edit_dish" href="{{ url_for('list_dish') }}">料理
-                        <br><span class="innertext">をととのえる</span>
-                        <img class="split_after_img" src="/static/img/index_img/omrice.png" width="300px">
-                        </a>
-                    </div>
-
+            </div>
+            <div class="editBtnArea" id="editBtnArea">
+                <button class="editBtn" id="editBtn">
+                    <p>ととのえる<br><span>材料や料理を編集する</p></span>
+                </button>
+                <div class="editBtnAreaClicked hidden" id="editBtnAreaClicked">
+                    <a class="editIngBtn" href="{{ url_for('list_ing') }}">材料<br><span>をととのえる</span></a>
+                    <a class="editDishBtn" href="{{ url_for('list_dish') }}">料理<br><span>をととのえる</span></a>
                 </div>
-                <!--ととのえるカード(終了)==========================================================================================-->
-            </div><!--カードコンテナ(ふやす，とととのえる)終了 -->
-        </div><!--カードコンテナ(さがす，ふやす，とととのえる)終了 -->
+            </div>
+        </div>
     </main>
-    <script src="{{ url_for('static', filename='javascript/menu/index.js') }}"></script>
+
+
+    <script src="/static/javascript/index.js"></script>
 </body>
+
 </html>

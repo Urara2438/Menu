@@ -1,0 +1,470 @@
+@charset "utf-8";
+
+body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #624735;
+    background: url(/static/img/body.png) no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.transparent {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+header {
+    width: 100%;
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 80px;
+    background: url(/static/img/header_h1.png) no-repeat center -110px/700px;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #B3774B;
+    width: 300px;
+    margin: 0px auto;
+    border-radius: 20px;
+    padding: 2px 0;
+    color: white;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background-color: #ac7741;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    padding: 5px 0;
+}
+
+h4 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 3px 0;
+    margin-bottom: 20px;
+    background-color: #ED7F10;
+    color: white;
+    border-radius: 20px;
+}
+
+main {
+    width: 100%;
+    margin: 0 auto;
+}
+
+section {
+    width: 90%;
+    max-width: 1400px;
+    background: url(/static/img/section.png) center center/cover;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 30px 0;
+    border: #ab7e61 7px solid;
+    border-radius: 40px;
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+}
+
+section>p {
+    width: 80%;
+    text-align: center;
+    font-weight: 500;
+    margin: 0 auto 30px;
+}
+
+footer {
+    width: 100%;
+    background-color: #624735;
+    padding: 30px 0 5px 0;
+}
+
+footer a {
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    width: 200px;
+    margin: 0 auto;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    transition: transform 0.2s ease;
+}
+
+footer a:hover {
+    transform: translateY(-5px);
+}
+
+/* index.html============================================================== */
+body.topPage div.btnContainer {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 200px 200px;
+    grid-template-columns: 400px 200px 200px;
+    gap: 20px;
+    margin: 0 auto;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+body.topPage div.btnContainer a span,
+body.topPage div.btnContainer button span {
+    font-size: 50%;
+    font-weight: normal;
+}
+
+/* さがすボタン=================================================== */
+body.topPage div.searchBtnArea {
+    width: 400px;
+    height: 420px;
+    grid-row: 1/3;
+    grid-column: 1/2;
+    border-radius: 35px;
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    transition: transform 0.2s ease;
+    background: url(/static/img/section.png);
+    border: #ab7e61 7px solid;
+}
+
+body.topPage div.searchBtnArea:hover {
+    transform: translateY(-5px);
+}
+
+body.topPage div.btnContainer div>a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0 0 30px;
+    overflow: hidden;
+}
+
+body.topPage div.btnContainer a.searchBtn {
+    background: url(/static/img/index_img/curryrice.png) -60px 60px/cover;
+}
+
+/* ふやす，ととのえるボタン=================================================== */
+body.topPage div.btnContainer div>button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    padding-left: 30px;
+}
+
+body.topPage div.btnContainer button.newBtn {
+    background: url(/static/img/index_img/eggs.png) no-repeat 100px -30px/400px;
+}
+
+body.topPage div.btnContainer div>button>p {
+    margin-top: -60px;
+}
+
+/* ふやすボタン=================================================== */
+body.topPage div.btnContainer div.newBtnArea {
+    width: 420px;
+    height: 200px;
+    grid-row: 1/2;
+    grid-column: 2/4;
+    border-radius: 35px;
+    background: url(/static/img/section.png);
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    transition: transform 0.2s ease;
+    border: #ab7e61 7px solid;
+}
+
+body.topPage div.btnContainer div.newBtnArea:hover {
+    transform: translateY(-5px);
+}
+
+body.topPage div.btnContainer div.newBtnAreaClicked {
+    display: flex;
+    gap: 20px;
+}
+
+body.topPage div.btnContainer div.newBtnAreaClicked a {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 35px;
+    background: url(/static/img/section.png);
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    font-size: 24px;
+}
+
+body.topPage div.btnContainer div.newBtnAreaClicked a span {
+    font-size: 16px;
+}
+
+/* 材料をふやす */
+body.topPage div.btnContainer div.newBtnAreaClicked a.newIngBtn {
+    background: url(/static/img/section.png);
+    border: #ab7e61 7px solid;
+}
+
+/* 料理をふやす */
+body.topPage div.btnContainer div.newBtnAreaClicked a.newDishBtn {
+    background: url(/static/img/section.png);
+    border: #ab7e61 7px solid;
+}
+
+
+/* ととのえるボタン=================================================== */
+body.topPage div.btnContainer div.editBtnArea {
+    width: 420px;
+    height: 200px;
+    grid-row: 2/3;
+    grid-column: 2/4;
+    border-radius: 35px;
+    background: url(/static/img/section.png);
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    transition: transform 0.2s ease;
+    border: #ab7e61 7px solid;
+}
+
+body.topPage div.btnContainer div.editBtnArea:hover {
+    transform: translateY(-5px);
+}
+
+body.topPage div.btnContainer button.editBtn {
+    background: url(/static/img/index_img/meat.png) no-repeat 100px -30px/400px;
+}
+
+body.topPage div.btnContainer div.editBtnAreaClicked {
+    display: flex;
+    gap: 20px;
+}
+
+body.topPage div.btnContainer div.editBtnAreaClicked a {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 35px;
+    background: url(/static/img/section.png);
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    font-size: 24px;
+}
+
+body.topPage div.btnContainer div.editBtnAreaClicked a span {
+    font-size: 16px;
+}
+
+/* 材料をととのえる */
+body.topPage div.btnContainer div.editBtnAreaClicked a.editIngBtn {
+    background: url(/static/img/section.png);
+    border: #ab7e61 7px solid;
+}
+
+/* 料理をととのえる */
+body.topPage div.btnContainer div.editBtnAreaClicked a.editDishBtn {
+    background: url(/static/img/section.png);
+    border: #ab7e61 7px solid;
+}
+
+/* search.html, new_dish.html============================================================== */
+div.categoryCardContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+div.categoryCard {
+    background-color: #fffaf3;
+    flex-basis: 300px;
+    aspect-ratio: 1/1;
+    padding: 15px 30px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+}
+
+div.checkboxContainer {
+    height: 200px;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: 50% 50%;
+}
+
+button[type="submit"] {
+    display: block;
+    text-align: center;
+    width: 200px;
+    height: 60px;
+    margin: 30px auto 0;
+    border-radius: 24px;
+    background-color: #8b6b4a;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    transition: transform 0.2s ease;
+    letter-spacing: 0.3em;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-5px);
+}
+
+/* result.html */
+body.result div.resultCardContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+body.result div.resultCardContainer div.resultCard {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    width: 400px;
+    height: 190px;
+    padding: 30px;
+    border-radius: 30px;
+    position: relative;
+}
+
+body.result div.resultCardContainer div.resultCard p.dishName {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+span.nolack {
+    color: rgba(83, 128, 0, 0.727);
+    font-weight: 500;
+}
+
+span.lack {
+    color: rgba(255, 145, 0, 0.825);
+    font-weight: 500;
+}
+
+body.result div.resultCardContainer div.resultCard a {
+    display: block;
+    background-color: rgba(83, 128, 0, 0.727);
+    color: white;
+    width: 50%;
+    margin-left: 50%;
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    left: -25px;
+    bottom: 25px;
+}
+
+/* new_ing.html */
+body.newIng main {
+    margin-bottom: 160px;
+}
+
+div.inputForm {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+div.selectCat {
+    text-align: center;
+}
+
+div.inputForm label,
+div.selectCat label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+input[type="text"],
+select {
+    width: 300px;
+    height: 40px;
+    border: #624735 solid 3px;
+    border-radius: 12px;
+    font-size: 18px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+input[type="text"],
+select:hover {
+    cursor: pointer;
+}
+
+/* list_ing.html */
+body.listIng div.checkboxContainer a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* list_dish.html */
+body.listDish div.dishContainer {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+body.listDish div.dishContainer a:hover {
+    text-decoration: underline 2px;
+}
+
+body.listDish div.searchResult {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+body.listDish div.searchResult:hover {
+    text-decoration: underline 2px;
+}
+
+@media screen and (max-width: 920px) {
+    header {
+        padding-top: 20px;
+        padding-bottom: 80px;
+        background: url(/static/img/header_h1.png) no-repeat center -68px/500px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header h2 {
+        font-size: 16px;
+        width: 200px;
+    }
+
+    body.topPage div.btnContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    body.topPage div.btnContainer>div {
+        flex-basis: 300px;
+        height: 300px;
+    }
+}

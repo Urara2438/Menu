@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一人暮らしの味方 - 料理の編集</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/base.css') }}">
+    <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/search + new_dish + edit_dish.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body>
     <header>
         <h1>一人暮らしの味方</h1>
-        <h2>料理を編集</h2><br>
+        <h2>料理を編集</h2>
     </header>
-    <hr><br>  
+    <hr><br>
     <form method="POST">
-        <!-- 料理名入力======================================================================================== -->
-        <h3>料理の名前をきめる</h3>
-        <input type="text" id="edit_dish_name" name="edited_dish_name" value="{{ now_dish.dish_name }}" placeholder="料理名を入力" required><br>
 
-        <!-- 材料選択======================================================================================== -->
-        <h3>材料をえらぶ</h3>
-        <div class="categorycard_container"><!-- カテゴリカードのコンテナ -->
-
-            {% for cat in cat_list %}
-            <!-- カテゴリカード -->
-            <div class="categorycard"style="
-            background-image: linear-gradient(rgba(255,255,255, 0.3), rgba(255,255,255,0.3)),
-            url('/static/img/category/{{ cat.cat_name }}.png');">
-                <h3>{{ cat.cat_name }}</h3>
-                <div class="checkbox-container">
-                {% for ing in ing_list if ing.cat_id == cat.cat_id %}
-                    <label>
-                        <input type="checkbox" name="edited_ing_id_needed_list" value="{{ ing.ing_id }}">
-                        {{ ing.ing_name }}
-                    </label>
-                {% else %}
-                <p>材料なし</p>
-                {% endfor %}  
-                </div>
+        <section>
+            <div class="inputForm">
+                <h3>料理の名前をかえる</h3>
+                <label for="set_ing_name">材料の名前</label><br>
+                <input type="text" id="set_ing_name" name="new_ing_name" required>
             </div>
-            {% endfor %}
-
-        </div><br><!-- カテゴリカードのコンテナ(終了) -->
-        <button type="submit" onclick="return confirm('編集します．よろしいですか？')">編集</button>
+        </section>
+        <section>
+            <!-- 材料選択======================================================================================== -->
+            <h3>材料をえらびなおす</h3>
+            <div class="categoryCardContainer"><!-- カテゴリカードのコンテナ -->
+                {% for cat in cat_list %}
+                <!-- カテゴリカード -->
+                <div class="categoryCard">
+                    <h4>{{ cat.cat_name }}</h4>
+                    <div class="checkbox-container">
+                        {% for ing in ing_list if ing.cat_id == cat.cat_id %}
+                        <label>
+                            <input type="checkbox" name="edited_ing_id_needed_list" value="{{ ing.ing_id }}">
+                            {{ ing.ing_name }}
+                        </label>
+                        {% else %}
+                        <p>材料なし</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" onclick="return confirm('編集します．よろしいですか？')">編集</button>
+        </section>
     </form>
-
-    <br><hr><br>
     <footer>
-        <a href="{{ url_for('index') }}">ホームに戻る</a><br>
+        <a href="{{ url_for('list_dish') }}">料理をえらびなおす</a>
+        <a href="{{ url_for('index') }}">ホームに戻る</a>
     </footer>
 </body>
+
 </html>

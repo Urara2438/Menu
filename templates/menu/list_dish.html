@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一人暮らしの味方 - 料理一覧</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/list_dish.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
-<body>
+
+<body class="listDish">
     <header>
         <h1>一人暮らしの味方</h1>
-        <h2>料理一覧</h2><br>
+        <h2>料理一覧</h2>
     </header>
-    <hr><br>
+
     <main>
-        {% if dish_list %}
-            {% for dish in dish_list %}
+        <section>
+            <div class="inputForm">
+                <h3>料理を検索する</h3>
+                <input type="text" id="dishSearchInput">
+                <div class="searchResult" id="searchResult"></div>
+            </div>
+        </section>
+        <section>
+            <h3>編集する料理をえらぶ</h3>
+            {% if dish_list %}
+            <div class="dishContainer" id="dishContainer">
+                {% for dish in dish_list %}
                 <a href="{{ url_for('edit_dish', dish_id=dish.dish_id) }}">{{ dish.dish_name }}</a>
-            {% endfor %}
-        {% else %}
+                {% endfor %}
+            </div>
+            {% else %}
             <p>登録されている料理はありません</p>
-        {% endif %}
+            {% endif %}
+        </section>
     </main>
-    <br><hr><br>
     <footer>
-        <a href="{{ url_for('index') }}">ホームに戻る</a><br>
-    </footer> 
+        <a href="{{ url_for('index') }}">ホームに戻る</a>
+    </footer>
+    <script src="/static/javascript/search_dish.js"></script>
 </body>
+
 </html>

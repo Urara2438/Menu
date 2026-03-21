@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一人暮らしの味方 - 検索結果</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/base.css') }}">
+    <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/result.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
-<body>
+
+<body class="result">
     <header>
         <h1>一人暮らしの味方</h1>
-        <h2>作れる料理</h2><br>
+        <h2>さがす</h2>
     </header>
-    <hr><br>
 
     <main>
-        <div class="result-card-container">
-            {% for dish_name, match_score, lack, lack_ing_name_list in result_list %}
-            <!--result_list = [[dish.dish_name, match_score, lack, lack_ing_name_list], [], ...]-->
-                <div class="result-card">
-                    <h3>{{ dish_name }}</h3>
+        <section>
+            <h3>作れる料理一覧</h3>
+            <div class="resultCardContainer">
+                {% for dish_name, match_score, lack, lack_ing_name_list in result_list %}
+                <div class="resultCard">
+                    <p class="dishName">{{ dish_name }}</p>
                     {% if lack == 0 %}
-                        <span style="color: rgba(83, 128, 0, 0.825);">不足なし</span>
+                    <span class="nolack">不足なし</span>
                     {% else %}
-                        <span style="color: rgba(255, 145, 0, 0.825);">不足あり</span>
-                        {{ lack }}個：{{ lack_ing_name_list | join(', ') }}
+                    <span class="lack">不足あり</span><br>
+                    {{ lack }}個：{{ lack_ing_name_list | join(', ') }}
                     {% endif %}
-                    <br>
-                    <div style="display: flex; justify-content: flex-end;">
-                        <a id="search-recipe" href="https://www.google.com/search?q={{ (dish_name ~ ' レシピ')|urlencode }}" target="_blank" rel="noopener">レシピを検索</a>
-                    </div>
+                    <a href="https://www.google.com/search?q={{ (dish_name ~ ' レシピ')|urlencode }}" target="_blank"
+                        rel="noopener">レシピを検索</a>
                 </div>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
+        </section>
     </main>
-
-    <br><hr><br>
 
     <footer>
         <a href="{{ url_for('search') }}">さがしなおす</a>
-        <br>
         <a href="{{ url_for('index') }}">ホームに戻る</a>
     </footer>
 </body>
+
 </html>

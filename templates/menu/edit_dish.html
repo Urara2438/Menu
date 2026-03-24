@@ -19,25 +19,24 @@
         <h1>一人暮らしの味方</h1>
         <h2>料理を編集</h2>
     </header>
-    <hr><br>
-    <form method="POST">
 
+    <form method="POST">
         <section>
             <div class="inputForm">
                 <h3>料理の名前をかえる</h3>
-                <label for="set_ing_name">材料の名前</label><br>
-                <input type="text" id="set_ing_name" name="new_ing_name" required>
+                <label for="set_dish_name">料理の名前</label><br>
+                <input type="text" id="edited_dish_name" name="new_dish_name" value="{{ now_dish.dish_name }}" required>
             </div>
         </section>
         <section>
             <!-- 材料選択======================================================================================== -->
             <h3>材料をえらびなおす</h3>
-            <div class="categoryCardContainer"><!-- カテゴリカードのコンテナ -->
+            <div class=" categoryCardContainer"><!-- カテゴリカードのコンテナ -->
                 {% for cat in cat_list %}
                 <!-- カテゴリカード -->
                 <div class="categoryCard">
                     <h4>{{ cat.cat_name }}</h4>
-                    <div class="checkbox-container">
+                    <div class="checkboxContainer">
                         {% for ing in ing_list if ing.cat_id == cat.cat_id %}
                         <label>
                             <input type="checkbox" name="edited_ing_id_needed_list" value="{{ ing.ing_id }}">

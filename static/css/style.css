@@ -3,10 +3,9 @@
 body {
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 1.2;
     color: #624735;
-    background: url(/static/img/body.png) no-repeat center center/cover;
-    background-attachment: fixed;
+    background: url(/static/img/body_cute.png) center center/cover;
 }
 
 .hidden {
@@ -21,28 +20,28 @@ body {
 
 header {
     width: 100%;
-    margin: 0px auto;
-    padding-top: 20px;
-    padding-bottom: 80px;
+    margin: 5px auto 0;
+    padding-top: 35px;
+    padding-bottom: 60px;
     background: url(/static/img/header_h1.png) no-repeat center -110px/700px;
 }
 
 header h1 {
-    font-size: 36px;
+    font-size: 42px;
     font-weight: 700;
     text-align: center;
-
+    margin-bottom: 5px;
 }
 
 header h2 {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     text-align: center;
     background-color: #B3774B;
     width: 300px;
     margin: 0px auto;
     border-radius: 20px;
-    padding: 2px 0;
+    padding: 5px 0;
     color: white;
 }
 
@@ -52,7 +51,7 @@ h3 {
     text-align: center;
     color: white;
     background-color: #ac7741;
-    width: 300px;
+    width: 280px;
     margin: 0 auto;
     margin-bottom: 30px;
     border-radius: 20px;
@@ -60,10 +59,12 @@ h3 {
 }
 
 h4 {
+    width: 240px;
     text-align: center;
     font-size: 18px;
     font-weight: 500;
     padding: 3px 0;
+    margin: 0 auto;
     margin-bottom: 20px;
     background-color: #ED7F10;
     color: white;
@@ -82,16 +83,19 @@ section {
     margin: 0 auto;
     margin-bottom: 40px;
     padding: 30px 0;
-    border: #ab7e61 7px solid;
+    border: #ab7e61 6px solid;
     border-radius: 40px;
     box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
+    position: relative;
 }
+
+
 
 section>p {
     width: 80%;
     text-align: center;
     font-weight: 500;
-    margin: 0 auto 30px;
+    margin: 0px auto 30px;
 }
 
 footer {
@@ -103,12 +107,13 @@ footer {
 footer a {
     display: block;
     text-align: center;
+    font-size: 18px;
     font-weight: 500;
     width: 200px;
     margin: 0 auto;
     padding: 15px;
     margin-bottom: 30px;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
     transition: transform 0.2s ease;
@@ -132,7 +137,7 @@ body.topPage div.btnContainer {
 
 body.topPage div.btnContainer a span,
 body.topPage div.btnContainer button span {
-    font-size: 50%;
+    font-size: 18px;
     font-weight: normal;
 }
 
@@ -146,7 +151,21 @@ body.topPage div.searchBtnArea {
     box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
     transition: transform 0.2s ease;
     background: url(/static/img/section.png);
-    border: #ab7e61 7px solid;
+    border: #ab7e61 6px solid;
+    position: relative;
+}
+
+/* 虫眼鏡アイコン */
+body.topPage div.searchBtnArea::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    display: block;
+    width: 80px;
+    aspect-ratio: 1/1;
+    background-image: url(/static/img/icon/icon_search.png);
+    background-size: cover;
 }
 
 body.topPage div.searchBtnArea:hover {
@@ -158,12 +177,11 @@ body.topPage div.btnContainer div>a {
     width: 100%;
     height: 100%;
     padding: 20px 0 0 30px;
-    overflow: hidden;
 }
 
-body.topPage div.btnContainer a.searchBtn {
+/* body.topPage div.btnContainer a.searchBtn {
     background: url(/static/img/index_img/curryrice.png) -60px 60px/cover;
-}
+} */
 
 /* ふやす，ととのえるボタン=================================================== */
 body.topPage div.btnContainer div>button {
@@ -174,9 +192,9 @@ body.topPage div.btnContainer div>button {
     padding-left: 30px;
 }
 
-body.topPage div.btnContainer button.newBtn {
+/* body.topPage div.btnContainer button.newBtn {
     background: url(/static/img/index_img/eggs.png) no-repeat 100px -30px/400px;
-}
+} */
 
 body.topPage div.btnContainer div>button>p {
     margin-top: -60px;
@@ -192,7 +210,21 @@ body.topPage div.btnContainer div.newBtnArea {
     background: url(/static/img/section.png);
     box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
     transition: transform 0.2s ease;
-    border: #ab7e61 7px solid;
+    border: #ab7e61 6px solid;
+    position: relative;
+}
+
+/* +アイコン */
+body.topPage div.newBtnArea button::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    display: block;
+    width: 80px;
+    aspect-ratio: 1/1;
+    background-image: url(/static/img/icon/icon_new.png);
+    background-size: cover;
 }
 
 body.topPage div.btnContainer div.newBtnArea:hover {
@@ -211,24 +243,39 @@ body.topPage div.btnContainer div.newBtnAreaClicked a {
     border-radius: 35px;
     background: url(/static/img/section.png);
     box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
-    font-size: 24px;
+    font-size: 100%;
 }
 
-body.topPage div.btnContainer div.newBtnAreaClicked a span {
-    font-size: 16px;
-}
-
-/* 材料をふやす */
-body.topPage div.btnContainer div.newBtnAreaClicked a.newIngBtn {
+/* ふやす(分割後) */
+body.topPage div.btnContainer div.newBtnAreaClicked a {
     background: url(/static/img/section.png);
-    border: #ab7e61 7px solid;
+    border: #ab7e61 6px solid;
 }
 
-/* 料理をふやす */
-body.topPage div.btnContainer div.newBtnAreaClicked a.newDishBtn {
-    background: url(/static/img/section.png);
-    border: #ab7e61 7px solid;
+body.topPage div.btnContainer div.newBtnAreaClicked a {
+    position: relative;
 }
+
+body.topPage div.btnContainer div.newBtnAreaClicked a.newIngBtn::after,
+body.topPage div.btnContainer div.newBtnAreaClicked a.newDishBtn::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    display: block;
+    width: 60px;
+    aspect-ratio: 1/1;
+    background-size: cover;
+}
+
+body.topPage div.btnContainer div.newBtnAreaClicked a.newIngBtn::after {
+    background-image: url(/static/img/icon/icon_ing.png);
+}
+
+body.topPage div.btnContainer div.newBtnAreaClicked a.newDishBtn::after {
+    background-image: url(/static/img/icon/icon_dish.png);
+}
+
 
 
 /* ととのえるボタン=================================================== */
@@ -241,16 +288,30 @@ body.topPage div.btnContainer div.editBtnArea {
     background: url(/static/img/section.png);
     box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
     transition: transform 0.2s ease;
-    border: #ab7e61 7px solid;
+    border: #ab7e61 6px solid;
+    position: relative;
+}
+
+/* 鉛筆アイコン */
+body.topPage div.editBtnArea button::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    display: block;
+    width: 80px;
+    aspect-ratio: 1/1;
+    background-image: url(/static/img/icon/icon_edit.png);
+    background-size: cover;
 }
 
 body.topPage div.btnContainer div.editBtnArea:hover {
     transform: translateY(-5px);
 }
 
-body.topPage div.btnContainer button.editBtn {
+/* body.topPage div.btnContainer button.editBtn {
     background: url(/static/img/index_img/meat.png) no-repeat 100px -30px/400px;
-}
+} */
 
 body.topPage div.btnContainer div.editBtnAreaClicked {
     display: flex;
@@ -264,23 +325,37 @@ body.topPage div.btnContainer div.editBtnAreaClicked a {
     border-radius: 35px;
     background: url(/static/img/section.png);
     box-shadow: 2px 2px 8px 0.5px rgb(89, 43, 8, 0.7);
-    font-size: 24px;
+    font-size: 100%;
 }
 
-body.topPage div.btnContainer div.editBtnAreaClicked a span {
-    font-size: 16px;
-}
-
-/* 材料をととのえる */
-body.topPage div.btnContainer div.editBtnAreaClicked a.editIngBtn {
+/* ととのえる(分割後) */
+body.topPage div.btnContainer div.editBtnAreaClicked a {
     background: url(/static/img/section.png);
-    border: #ab7e61 7px solid;
+    border: #ab7e61 6px solid;
 }
 
-/* 料理をととのえる */
-body.topPage div.btnContainer div.editBtnAreaClicked a.editDishBtn {
-    background: url(/static/img/section.png);
-    border: #ab7e61 7px solid;
+body.topPage div.btnContainer div.editBtnAreaClicked a {
+    position: relative;
+}
+
+body.topPage div.btnContainer div.editBtnAreaClicked a.editIngBtn::after,
+body.topPage div.btnContainer div.editBtnAreaClicked a.editDishBtn::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    display: block;
+    width: 60px;
+    aspect-ratio: 1/1;
+    background-size: cover;
+}
+
+body.topPage div.btnContainer div.editBtnAreaClicked a.editIngBtn::after {
+    background-image: url(/static/img/icon/icon_ing.png);
+}
+
+body.topPage div.btnContainer div.editBtnAreaClicked a.editDishBtn::after {
+    background-image: url(/static/img/icon/icon_dish.png);
 }
 
 /* search.html, new_dish.html============================================================== */
@@ -314,7 +389,7 @@ button[type="submit"] {
     width: 200px;
     height: 60px;
     margin: 30px auto 0;
-    border-radius: 24px;
+    border-radius: 30px;
     background-color: #8b6b4a;
     font-size: 20px;
     font-weight: 500;
@@ -392,14 +467,14 @@ div.selectCat {
 
 div.inputForm label,
 div.selectCat label {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
 }
 
 input[type="text"],
 select {
-    width: 300px;
-    height: 40px;
+    width: 50%;
+    height: 35px;
     border: #624735 solid 3px;
     border-radius: 12px;
     font-size: 18px;
@@ -426,6 +501,15 @@ body.listDish div.dishContainer {
     grid-template-columns: repeat(6, 1fr);
     font-size: 18px;
     font-weight: 500;
+    background-color: white;
+    padding: 10px;
+    border: 4px solid #ab7e61;
+    border-radius: 10px;
+}
+
+body.listDish div.dishContainer a::before {
+    content: "・";
+    font-weight: 900;
 }
 
 body.listDish div.dishContainer a:hover {
@@ -435,22 +519,35 @@ body.listDish div.dishContainer a:hover {
 body.listDish div.searchResult {
     font-size: 18px;
     font-weight: 500;
-    margin-top: 20px;
+    margin: 20px auto 0;
+    width: 300px;
+    height: 50px;
+    background-color: white;
+    padding: 10px;
+    border: 3px solid #ab7e61;
+    border-radius: 12px;
 }
 
 body.listDish div.searchResult:hover {
     text-decoration: underline 2px;
 }
 
+
+
+
+
+/* メデイアクエリ======================================================================= */
 @media screen and (max-width: 920px) {
     header {
-        padding-top: 20px;
-        padding-bottom: 80px;
+        padding-bottom: 40px;
+        margin: -10px auto 0;
+        padding-top: 30px;
         background: url(/static/img/header_h1.png) no-repeat center -68px/500px;
     }
 
     header h1 {
-        font-size: 28px;
+        padding-top: 5px;
+        font-size: 30px;
     }
 
     header h2 {
@@ -458,13 +555,99 @@ body.listDish div.searchResult:hover {
         width: 200px;
     }
 
+    h3 {
+        font-size: 18px;
+    }
+
+    body {
+        font-size: 14px;
+        background: url(/static/img/body_cute.png) center center/cover;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+
+
+
     body.topPage div.btnContainer {
         display: flex;
         flex-wrap: wrap;
     }
 
     body.topPage div.btnContainer>div {
-        flex-basis: 300px;
-        height: 300px;
+        flex-basis: 270px;
+        height: 270px;
+    }
+
+    body.topPage div.btnContainer div.searchBtnArea {
+        font-size: 80%;
+    }
+
+    body.topPage div.btnContainer div.newBtnArea,
+    body.topPage div.btnContainer div.editBtnArea {
+        width: 270px;
+        height: 125px;
+        font-size: 80%;
+    }
+
+    body.topPage div.btnContainer div.newBtnAreaClicked a,
+    body.topPage div.btnContainer div.editBtnAreaClicked a {
+        height: 125px;
+        padding-left: 20px;
+        padding-top: 10px;
+        font-size: 80%;
+    }
+
+    body.topPage div.btnContainer div>button>p {
+        margin-top: 0px;
+    }
+
+    /* body.topPage div.btnContainer button.newBtn {
+        background: url(/static/img/index_img/eggs.png) no-repeat 80px -30px/300px;
+    } */
+
+    /* body.topPage div.btnContainer button.editBtn {
+        background: url(/static/img/index_img/meat.png) no-repeat 80px -30px/300px;
+    } */
+
+    body.listDish div.dishContainer {
+        grid-template-columns: repeat(2, 1fr);
+        font-size: 16px;
+    }
+
+    body.topPage div.btnContainer a span,
+    body.topPage div.btnContainer button span {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    /* 虫眼鏡アイコン */
+    body.topPage div.searchBtnArea::after,
+    body.topPage div.newBtnArea button::after,
+    body.topPage div.editBtnArea button::after {
+        right: -15px;
+        top: -15px;
+        width: 60px;
+    }
+
+    input[type="text"],
+    select {
+        width: 80%;
+    }
+
+    button[type="submit"] {
+        width: 200px;
+        height: 50px;
+        margin: 30px auto 20px;
+    }
+
+    body.topPage div.btnContainer div.newBtnAreaClicked a.newIngBtn::after,
+    body.topPage div.btnContainer div.newBtnAreaClicked a.newDishBtn::after,
+    body.topPage div.btnContainer div.editBtnAreaClicked a.editIngBtn::after,
+    body.topPage div.btnContainer div.editBtnAreaClicked a.editDishBtn::after {
+        width: 40px;
+        right: -10px;
+        top: -10px;
     }
 }

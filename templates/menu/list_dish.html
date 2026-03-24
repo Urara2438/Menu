@@ -24,12 +24,14 @@
         <section>
             <div class="inputForm">
                 <h3>料理を検索する</h3>
+                <p>料理名を入力してください</p>
                 <input type="text" id="dishSearchInput">
-                <div class="searchResult" id="searchResult"></div>
+                <div class="searchResult hidden" id="searchResult"></div>
             </div>
         </section>
         <section>
             <h3>編集する料理をえらぶ</h3>
+            <p>編集したい料理を選択してください</p>
             {% if dish_list %}
             <div class="dishContainer" id="dishContainer">
                 {% for dish in dish_list %}

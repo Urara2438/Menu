@@ -1,7 +1,6 @@
 const dishSearchInput = document.getElementById("dishSearchInput");
 const searchResult = document.getElementById("searchResult");
 const dishLinks = document.querySelectorAll("#dishContainer a");
-//dishLinks = Nodelist
 
 dishSearchInput.addEventListener("focus", function () {
     searchResult.classList.remove("hidden");
@@ -26,18 +25,18 @@ dishSearchInput.addEventListener("input", function () {
                 name: dishName,
                 href: dishLink.href
             });
-        };
+        }
     });
 
     if (matchedDishes.length === 0) {
-        searchResult.textContent = "該当する料理はありません"
+        searchResult.textContent = "該当する料理はありません";
         return;
     }
 
-    matchedDishes.forEach(function (matchedDish) {
+    matchedDishes.forEach(function (dish) {
         const resultLink = document.createElement("a");
-        resultLink.textContent = matchedDish.name;
-        resultLink.href = matchedDish.href;
+        resultLink.textContent = dish.name;
+        resultLink.href = dish.href;
         searchResult.appendChild(resultLink);
     });
 });
